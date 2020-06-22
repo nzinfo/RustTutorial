@@ -1,0 +1,36 @@
+= 如何使用 AsciiDoc
+
+AsciiDoc 是类似 Markdown 的一种标记语言，最新的实现是使用 Ruby 的 AsciiDoctor。
+
+与 Markdown 不同，AsciiDoc 提供了更丰富的板式控制与绘图功能，通过引入特定的 CSS，可以实现多种相对复杂的板式布局。
+
+
+== 安装
+
+在 Debian，Ubuntu 或 Mint 中安装这个 gem，请打开终端并输入如下命令：
+
+ $ sudo apt-get install -y asciidoctor graphviz
+
+因为要使用绘图功能，还需要安装图形包：
+ 
+ $ sudo apt-get install -y graphviz
+ $ sudo gem install asciidoctor-diagram
+
+为了要能够在图表中支持中文字体：
+
+ $ sudo apt-get install fonts-droid ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
+
+== 使用
+
+如果成功安装 Asciidoctor，则在可执行程序路径中，`asciidoctor` 就可用了。
+为了验证它的可用性，你可以在终端中执行如下命令：
+
+ $ asciidoctor --version
+
+将文件写入到不同路径里，使用如下命令：
+
+ $ asciidoctor -D output README.adoc
+
+对于需要绘图的文件，启用 diagram 插件，使用如下命令：
+
+ $ asciidoctor -r asciidoctor-diagram -D output README.adoc

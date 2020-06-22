@@ -1,0 +1,101 @@
+[graphviz]
+....
+digraph KnowledgeHierarchy  {
+  node [style=rounded]
+  rankdir = BT
+  
+  subgraph cluster_1 {
+		node [style=filled];
+		
+		信息论 -> 计算机组成;
+		信息论 -> 网络原理;
+		label = "基础知识";
+		color=blue
+		rankdir=TB;
+  }
+  
+  subgraph cluster_2 {
+    label = "基础软件";
+    
+    操作系统原理 [
+        style="rounded,filled", 
+        shape=record, 
+        label="操作系统 | { 进程调度 | 内存管理 | 硬件驱动 }"  
+    ]
+    
+    编译与链接 [
+        style="rounded,filled", 
+        shape=record, 
+        label="编译 | { 代码解析 | 指令优化 | 链接 }"      
+    ]
+    
+    存储 [
+        style="rounded,filled", 
+        shape=record, 
+        label="存储 | { 文件系统| {本地|网络} | 存储设备协议 }"      
+    ] 
+  }
+  
+  subgraph cluster_3 {
+    label = "应用支撑系统";
+    
+    数据库 []
+    浏览器 []
+    消息队列 []
+    分布式文件系统 []
+    虚拟机 []
+
+
+    编译与链接 -> 虚拟机
+  }
+
+  subgraph cluster_4 {
+    label = "后端";
+    
+    Web服务 [
+      shape=record, 
+      label="Web | { PHP | Python | Java }" 
+    ]
+    
+    大数据处理 []
+    云原生 []
+
+    虚拟机 -> Web服务
+    分布式文件系统 -> 大数据处理
+  }
+
+  subgraph cluster_5 {
+    label = "前端";
+    
+    Android []
+    iOS []
+    JavaScript []
+    JQuery []
+    React []
+    Vue []
+    CSS []
+    浏览器 -> CSS
+    浏览器 -> JavaScript
+    JavaScript -> JQuery
+    JavaScript -> React
+    JavaScript -> Vue
+  }
+
+  // arrowhead=none
+  计算机组成 [
+        fillcolor=yellow, 
+        style="rounded,filled", 
+        shape=record, 
+        label="计算机\n\n组成原理 | { 指令系统 | 微体系结构 | 数字电路 }"  
+  ]
+  信息论 [fillcolor=yellow, style="rounded,filled" ]
+  网络原理 [fillcolor=yellow, style="rounded,filled", shape=record, label="网络 | { 数据报处理 | 路由 | 网络层次结构 }"]
+
+  计算机组成 -> 操作系统原理
+  网络原理 -> 存储
+  操作系统原理 -> 数据库
+  操作系统原理 -> 浏览器
+  存储 -> 数据库
+  存储 -> 分布式文件系统
+}
+....
