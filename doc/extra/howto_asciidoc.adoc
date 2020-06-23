@@ -7,13 +7,13 @@ AsciiDoc 是类似 Markdown 的一种标记语言，最新的实现是使用 Rub
 
 == 安装
 
-在 Debian，Ubuntu 或 Mint 中安装这个 gem，请打开终端并输入如下命令：
+在 Ubuntu 中安装这个 gem，请打开终端并输入如下命令：
 
- $ sudo apt-get install -y asciidoctor graphviz
+ $ sudo apt-get install -y asciidoctor ruby-dev 
 
 因为要使用绘图功能，还需要安装图形包：
  
- $ sudo apt-get install -y graphviz
+ $ sudo apt-get install -y graphviz libmagickwand-dev imagemagick
  $ sudo gem install asciidoctor-diagram
 
 为了要能够在图表中支持中文字体：

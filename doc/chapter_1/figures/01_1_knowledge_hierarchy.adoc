@@ -41,7 +41,8 @@ digraph KnowledgeHierarchy  {
     
     数据库 []
     浏览器 []
-    消息队列 []
+    工业控制 []
+    AI []
     分布式文件系统 []
     虚拟机 []
 
@@ -56,12 +57,22 @@ digraph KnowledgeHierarchy  {
       shape=record, 
       label="Web | { PHP | Python | Java }" 
     ]
-    
-    大数据处理 []
+    Spring []
+    Flask []
+    ThinkPHP []
+    ORM []
+    大数据 []
     云原生 []
 
     虚拟机 -> Web服务
-    分布式文件系统 -> 大数据处理
+    分布式文件系统 -> 大数据
+    Web服务 -> Spring
+    Web服务 -> Flask
+    Web服务 -> ThinkPHP
+    Web服务 -> ORM
+    大数据 -> Flink
+    大数据 -> Spark
+    大数据 -> Impala
   }
 
   subgraph cluster_5 {
